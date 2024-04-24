@@ -16,7 +16,15 @@ fetch(apiUrl)
         return response.json();
     })
     .then(userData => {
-        // console.log('User Data:', userData);
+
+
+        userData.sort(function(a,b){
+            let dateA = new Date(a.publicationDate);
+            let dateB = new Date(b.publicationDate);
+
+            return dateB - dateA;
+        });
+
         for(i = 0; i < userData.length; i++) {
             let div = document.createElement('div')
             let article = `<div class="col-12 mt-5">
