@@ -17,10 +17,6 @@ storedFavoris.forEach(favoris => {
                                         <h5 class="card-title d-flex justify-content-between">${favoris.title}<span class="publication-date">${favoris.publicationDate}</span></h5>
                                     </div>
                                     <img src="${favoris.image}" class="card-img-top">
-                                    <span class="fa-stack fa-2x addFavorite">
-                                        <i class="fas fa-star fa-stack-1x"></i>
-                                        <i class="far fa-star fa-stack-1x"></i>
-                                    </span>
                                     <div class="card-body">
                                         <p class="card-text">${favoris.content}</p>
                                     </div>

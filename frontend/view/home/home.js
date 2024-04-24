@@ -48,7 +48,7 @@ fetch(apiUrl)
         }
 
         let favoris = document.querySelectorAll('.addFavorite')
-        let allFavorites = [];
+        // let allFavorites = [];
 
         favoris.forEach(function(favori) {
             favori.addEventListener('click', ()=> {
@@ -58,23 +58,28 @@ fetch(apiUrl)
                 let articleContent = favori.dataset.articleContent;
                 let articleDate = favori.dataset.articleDate;
                 let articleImg = favori.dataset.articleImg;
+                
+                let existingFavoritesJson = localStorage.getItem('favoris');
+                let existingFavorites = existingFavoritesJson ? JSON.parse(existingFavoritesJson) : [];
 
-                let existingIndex = allFavorites.findIndex(article => article.id === articleId);
+                let existingIndex = existingFavorites.findIndex(article => article.id === articleId);
+
                 
                 if (existingIndex !== -1) {
-                    allFavorites.splice(existingIndex, 1);
+                    existingFavorites.splice(existingIndex, 1);
                 }else {
-                    allFavorites.push({
+                    existingFavorites.push({
                         id: articleId,
                         title: articleTitle,
                         content: articleContent,
                         image: articleImg,
-                        date: articleDate
+                        publicationDate: articleDate
                     })
                 }
 
-                let favorisJson = JSON.stringify(allFavorites)
+                let favorisJson = JSON.stringify(existingFavorites)
                 localStorage.setItem('favoris', favorisJson);
+                // console.log(favorisJson)
 
             })
 
