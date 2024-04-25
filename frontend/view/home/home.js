@@ -63,9 +63,6 @@ fetch(apiUrl)
 
                 let existingIndex = existingFavorites.findIndex(article => article.id === articleId);
 
-                // if (existingFavorites.some(article => article.id === articleId)) {
-                //     favori.classList.add('activeFavoris');
-                // }
                 
                 if (existingIndex !== -1) {
                     existingFavorites.splice(existingIndex, 1);
