@@ -48,7 +48,6 @@ fetch(apiUrl)
         }
 
         let favoris = document.querySelectorAll('.addFavorite')
-        // let allFavorites = [];
 
         favoris.forEach(function(favori) {
             favori.addEventListener('click', ()=> {
@@ -75,6 +74,7 @@ fetch(apiUrl)
                         image: articleImg,
                         publicationDate: articleDate
                     })
+                    alert(articleTitle + ' à été ajouté au favoris')
                 }
 
                 let favorisJson = JSON.stringify(existingFavorites)
