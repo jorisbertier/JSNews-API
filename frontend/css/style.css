@@ -43,6 +43,7 @@ h1{
     position: absolute;
     top: 80px;
     right: 10px;
+    cursor: pointer;
 }
 
 .article .addFavorite .far{
@@ -56,5 +57,4 @@ h1{
 
 .activeFavoris {
     color: yellow;
-    cursor: pointer;
 }
