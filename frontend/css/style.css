@@ -48,8 +48,13 @@ h1{
 .article .addFavorite .far{
     color: rgba(0,0,0,0.2);
 }
-
+/* 
 .article .addFavorite:hover{
+    color: yellow;
+    cursor: pointer;
+} */
+
+.activeFavoris {
     color: yellow;
     cursor: pointer;
 }

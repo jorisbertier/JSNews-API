@@ -66,6 +66,7 @@ fetch(apiUrl)
                 
                 if (existingIndex !== -1) {
                     existingFavorites.splice(existingIndex, 1);
+                    favori.classList.remove('activeFavoris')
                 }else {
                     existingFavorites.push({
                         id: articleId,
@@ -74,7 +75,8 @@ fetch(apiUrl)
                         image: articleImg,
                         publicationDate: articleDate
                     })
-                    alert(articleTitle + ' à été ajouté au favoris')
+                    // alert(articleTitle + ' à été ajouté au favoris')
+                    favori.classList.add('activeFavoris')
                 }
 
                 let favorisJson = JSON.stringify(existingFavorites)
