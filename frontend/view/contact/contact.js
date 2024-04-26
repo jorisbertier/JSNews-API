@@ -6,16 +6,16 @@
 let inputEmail = document.getElementById('email')
 let inputName = document.getElementById('name')
 let form = document.querySelector('form')
-let errorName = null;
+let errorMessage = null;
 
 console.log(inputEmail)
 
 
 function validateName(name) {
     if(name.length < 5 ||  name.length > 400) {
-        if(!errorName) {
+        if(!errorMessage) {
             createMessageError("Le nom doit être supèrieure à 5 caractères")
-            inputName.parentNode.appendChild(errorName)
+            inputName.parentNode.appendChild(errorMessage)
         }
         return false;
     }
@@ -26,27 +26,29 @@ function validateName(name) {
 function validateEmail(email) {
     let regexEmail = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
     if(!regexEmail.test(email)) {
-        console.log('email non valide')
+        if(!errorMessage) {
+            createMessageError("L'email est invalide")
+            inputEmail.parentNode.appendChild(errorMessage)
+        }
         return false
     }
+    removeMessageError()
     return true
 }
 
 function createMessageError(message) {
-    errorName = document.createElement("span")
-    errorName.classList.add('error')
-    errorName.innerText = message
+    errorMessage = document.createElement("span")
+    errorMessage.classList.add('error')
+    errorMessage.innerText = message
     return message
 }
 
 function removeMessageError() {
-    if(errorName) {
-        errorName.remove()
-        errorName = null;
+    if(errorMessage) {
+        errorMessage.remove()
+        errorMessage = null;
     }
 }
-
-
 
 form.addEventListener('submit', (event)=> {
     event.preventDefault()
