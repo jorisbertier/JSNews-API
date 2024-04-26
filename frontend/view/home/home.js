@@ -32,7 +32,7 @@ fetch(apiUrl)
                                     <div class="card-header ">
                                         <h5 class="card-title d-flex justify-content-between">${userData[i].title}<span class="publication-date">${userData[i].publicationDate}</span></h5>
                                     </div>
-                                    <img src="${userData[i].image}" class="card-img-top">
+                                    <img src="http://localhost:4000/${userData[i].image}" class="card-img-top">
                                     <span class="fa-stack fa-2x addFavorite" data-article-id="${userData[i].id}" data-article-title="${userData[i].title}" data-article-content="${userData[i].content}" data-article-date="${userData[i].publicationDate}" data-article-img="${userData[i].image}">
                                         <i class="fas fa-star fa-stack-1x"></i>
                                         <i class="far fa-star fa-stack-1x"></i>
@@ -42,6 +42,7 @@ fetch(apiUrl)
                                     </div>
                                 </div>
                             </div>`
+                            
         div.innerHTML = article;
         container.appendChild(div)
         
