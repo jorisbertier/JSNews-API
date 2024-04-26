@@ -19,10 +19,7 @@ function validateName(name) {
         }
         return false;
     }
-    if(errorName) {
-        errorName.remove()
-        errorName = null;
-    }
+    removeMessageError()
     return true
 }
 
@@ -40,6 +37,13 @@ function createMessageError(message) {
     errorName.classList.add('error')
     errorName.innerText = message
     return message
+}
+
+function removeMessageError() {
+    if(errorName) {
+        errorName.remove()
+        errorName = null;
+    }
 }
 
 
