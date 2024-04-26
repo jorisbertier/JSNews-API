@@ -50,20 +50,24 @@ fetch(apiUrl)
         let favoris = document.querySelectorAll('.addFavorite')
 
         favoris.forEach(function(favori) {
+
+            let articleId = favori.dataset.articleId;
+            let articleTitle = favori.dataset.articleTitle;
+            let articleContent = favori.dataset.articleContent;
+            let articleDate = favori.dataset.articleDate;
+            let articleImg = favori.dataset.articleImg;
+            
+            let existingFavoritesJson = localStorage.getItem('favoris');
+            let existingFavorites = existingFavoritesJson ? JSON.parse(existingFavoritesJson) : [];
+
+            let existingIndex = existingFavorites.findIndex(article => article.id === articleId);
+            
+            if (existingIndex !== -1) {
+                favori.classList.remove('activeFavoris')
+            }
+
             favori.addEventListener('click', ()=> {
 
-                let articleId = favori.dataset.articleId;
-                let articleTitle = favori.dataset.articleTitle;
-                let articleContent = favori.dataset.articleContent;
-                let articleDate = favori.dataset.articleDate;
-                let articleImg = favori.dataset.articleImg;
-                
-                let existingFavoritesJson = localStorage.getItem('favoris');
-                let existingFavorites = existingFavoritesJson ? JSON.parse(existingFavoritesJson) : [];
-
-                let existingIndex = existingFavorites.findIndex(article => article.id === articleId);
-
-                
                 if (existingIndex !== -1) {
                     existingFavorites.splice(existingIndex, 1);
                     favori.classList.remove('activeFavoris')
