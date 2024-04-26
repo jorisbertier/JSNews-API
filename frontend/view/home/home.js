@@ -63,7 +63,7 @@ fetch(apiUrl)
             let existingIndex = existingFavorites.findIndex(article => article.id === articleId);
             
             if (existingIndex !== -1) {
-                favori.classList.remove('activeFavoris')
+                favori.classList.add('activeFavoris')
             }
 
             favori.addEventListener('click', ()=> {
