@@ -6,16 +6,26 @@
 let inputEmail = document.getElementById('email')
 let inputName = document.getElementById('name')
 let form = document.querySelector('form')
+let errorName = null;
+
 console.log(inputEmail)
 
 
 function validateName(name) {
     if(name.length < 5 ||  name.length > 400) {
-        console.log('inferieure a 5 ou supereiure a 400')
+        if(!errorName) {
+            createMessageError("Le nom doit être supèrieure à 5 caractères")
+            inputName.parentNode.appendChild(errorName)
+        }
         return false;
+    }
+    if(errorName) {
+        errorName.remove()
+        errorName = null;
     }
     return true
 }
+
 function validateEmail(email) {
     let regexEmail = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
     if(!regexEmail.test(email)) {
@@ -24,6 +34,15 @@ function validateEmail(email) {
     }
     return true
 }
+
+function createMessageError(message) {
+    errorName = document.createElement("span")
+    errorName.classList.add('error')
+    errorName.innerText = message
+    return message
+}
+
+
 
 form.addEventListener('submit', (event)=> {
     event.preventDefault()

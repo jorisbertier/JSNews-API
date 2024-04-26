@@ -58,3 +58,7 @@ h1{
 .activeFavoris {
     color: yellow;
 }
+
+.error {
+    color: red;
+}
