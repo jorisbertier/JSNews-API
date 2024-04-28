@@ -80,7 +80,7 @@ fetch(apiUrl)
                         image: articleImg,
                         publicationDate: articleDate
                     })
-                    // alert(articleTitle + ' à été ajouté au favoris')
+                    
                     favori.classList.add('activeFavoris')
                 }
 
